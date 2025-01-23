@@ -6,9 +6,9 @@ class PaginaPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int minNumero = 1; // cambiar a 0
-    int maxNumero = 10; // cambiar a 100
-    int actualNumero = 5; // cambiar
+    int minNumero = 0;
+    int maxNumero = 100;
+    int actualNumero = 50;
     return Scaffold(
       body: Center(
         child: Column(
@@ -35,9 +35,7 @@ class PaginaPrincipal extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text(
-                'Intentar Adivinar',
-              ),
+              child: const Text('Intentar Adivinar'),
             ),
           ],
         ),

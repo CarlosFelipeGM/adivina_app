@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:adivina_app/pages/pagina_final.dart';
 import 'package:flutter/material.dart';
 
@@ -20,14 +19,15 @@ class PaginaConSlider extends StatefulWidget {
 }
 
 class _PaginaConSliderState extends State<PaginaConSlider> {
-  int numeroAleatorio = 1;
+  int numeroAleatorio = 0;
   late double valorActual;
   var estado = '....';
 
   @override
   void initState() {
     valorActual = widget.valorInicial.toDouble();
-    numeroAleatorio = Random().nextInt(widget.maximo) + 1;
+    // Random generara un numero aleatorio entre 0 y 100 (tope 101)
+    numeroAleatorio = Random().nextInt(widget.maximo + 1);
     super.initState();
   }
 
@@ -37,6 +37,7 @@ class _PaginaConSliderState extends State<PaginaConSlider> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 10,
           children: [
             Text(
               "Estoy pensando en un número entre ${widget.minimo} y ${widget.maximo}",
@@ -46,12 +47,10 @@ class _PaginaConSliderState extends State<PaginaConSlider> {
               "Adivina cual es",
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            const SizedBox(height: 10),
             Text(
               "Pista: demasiado $estado",
               style: Theme.of(context).textTheme.displaySmall,
             ),
-            const SizedBox(height: 10),
             Text(
               "Creo que es: ${valorActual.toInt()}",
               style: Theme.of(context).textTheme.titleLarge,
@@ -60,7 +59,6 @@ class _PaginaConSliderState extends State<PaginaConSlider> {
               "Usa el slider para adivinar el número.",
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            const SizedBox(height: 10),
             Slider(
               min: widget.minimo.toDouble(),
               max: widget.maximo.toDouble(),
@@ -71,7 +69,6 @@ class _PaginaConSliderState extends State<PaginaConSlider> {
                 });
               },
             ),
-            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 // _compararConAleatorio
@@ -82,7 +79,7 @@ class _PaginaConSliderState extends State<PaginaConSlider> {
                 setState(() {
                   switch (resultado) {
                     case 0:
-                      // son iguales, redirigir a la pagina final
+                      // numeroAleatorio y valorActual son iguales, redirigir a la pagina final
                       Navigator.push(
                         context,
                         MaterialPageRoute(

@@ -37,6 +37,7 @@ class PaginaFinal extends StatelessWidget {
               "El numero era el: $valorActual",
               style: Theme.of(context).textTheme.displaySmall,
             ),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -46,9 +47,7 @@ class PaginaFinal extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text(
-                'Volver al inicio',
-              ),
+              child: const Text('Volver al inicio'),
             ),
           ],
         ),
