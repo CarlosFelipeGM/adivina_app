@@ -6,9 +6,11 @@ class PaginaPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int minNumero = 0;
-    int maxNumero = 100;
-    int actualNumero = 50;
+    // Solo por standard usar var para variables locales cuando son asignadas
+    // en la misma linea de su declaracion
+    var minNumero = 0;
+    var maxNumero = 100;
+    var actualNumero = 50;
     return Scaffold(
       body: Center(
         child: Column(
